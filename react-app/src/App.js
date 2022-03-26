@@ -20,19 +20,13 @@ function App() {
 
   return (
     <div className="main">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {users.map((user) => {
+        return (
+        <div>
+          <h1>Name: {user.name}</h1>
+        </div>
+        );
+      })}
     </div>
   );
 }
