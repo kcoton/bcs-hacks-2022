@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyAcbYfxnS5iCodLFyZ_P_-hY6H3TVzotHs",
   authDomain: "bcs-hackathon-project-2022.firebaseapp.com",
   projectId: "bcs-hackathon-project-2022",
@@ -12,6 +12,5 @@ const firebaseConfig = {
   measurementId: "G-7TKH5MQ6KP"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(config);
 export const db = getFirestore(app);

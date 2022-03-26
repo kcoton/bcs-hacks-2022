@@ -1,35 +1,76 @@
-import logo from './logo.svg';
-import './App.css';
 import { useState, useEffect } from "react";
+import "./App.css";
 import { db } from "./firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDoc, getDocs } from "firebase/firestore";
+import { async } from "@firebase/util";
 
 function App() {
-  // firebase info
-  const [users, setUsers] = useState([]); // holds list of users in table
-  const usersCollectionRef = collection(db, "users");
-  
-  useEffect(() => { // auto-updates on refresh
-    const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  const [courses, setCourses] = useState([]);
+  const courseCollectionRef = collection(db, "InitializeDatabse");
+
+  useEffect(() => {
+    const getCourses = async () => {
+      const data = await getDocs(courseCollectionRef);
+      setCourses(data.docs.map((doc) => ({ ...doc.data(), id: doc.id})));
     };
 
-    getUsers();
+    getCourses();
   }, []);
 
   return (
-    <div className="main">
-      {users.map((user) => {
+    <div className="App">
+      {courses.map((course) => {
         return (
-        <div>
-          <h1>Name: {user.name}</h1>
-          <h1>Hi</h1>
-        </div>
+          <div>
+            {" "}
+            <h1>Course Name: {course.CourseName}</h1>
+            <h1>Course Code: {course.CourseNum}</h1>
+          </div>
         );
       })}
     </div>
   );
 }
+  
+/*
+  render(){
+  return (
+    <div className="main">
+      <div className="container">
+          <table id="example" class="display table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>FirstName</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+            <tbody>
+            {this.state.studentslist.map(data => {
+                
+                return (
+                    <tr>     
+                    <td>{data.CourseName}</td>
+                    <td>{data.CourseNum}</td>
+                    <td>{data.OneOrAll}</td>
+                    </tr>
+                    
+                );
+               
+                })}
+        
+               
+            </tbody>
+            
+         </table>
+          
+     </div>
+    </div>
+  );
+}
+}
+*/
+
 
 export default App;
