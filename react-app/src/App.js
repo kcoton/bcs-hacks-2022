@@ -12,21 +12,20 @@ function App() {
   useEffect(() => { // auto-updates on refresh
     const getUsers = async () => {
       const data = await getDocs(usersCollectionRef);
-      console.log(data);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     };
 
     getUsers();
   }, []);
 
   return (
-    <div className="App">
+    <div className="main">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
