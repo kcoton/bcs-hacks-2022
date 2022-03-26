@@ -1,4 +1,60 @@
-.App {
+
+.main {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 95%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid rgb(182, 182, 182);
+}
+
+#myTable tr:nth-child(odd){
+  background-color: #b5ddee;
+  color: black;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.title {
+  justify-content: center;
+  text-align: center;
+  background-image: url("chevron.png");
+  background-repeat: repeat;
+  width: 100%;
+  border-radius: 100px;
+  height: auto;
+}
+
+.heading-section {
+  justify-items: center;
   text-align: center;
 }
 
